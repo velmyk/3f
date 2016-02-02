@@ -1,25 +1,25 @@
 {
-  "name": "my-angular",
+  "name": "framework-for-fun",
   "version": "1.0.0",
-  "description": "Building AngularJS with Tero Parviainen",
+  "description": "I am building som framework just for fun. And do not know what to get in the end",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/velmyk/my-angular.git"
+    "url": "git+https://github.com/velmyk/3f.git"
   },
   "keywords": [
     "angular",
     "framework"
   ],
-  "author": "Vasyl Velmyk (Tero Parviainen)",
+  "author": "Vasyl Velmyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/velmyk/my-angular/issues"
+    "url": "https://github.com/velmyk/3f/issues"
   },
-  "homepage": "https://github.com/velmyk/my-angular#readme",
+  "homepage": "https://github.com/velmyk/3f#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
@@ -33,5 +33,9 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "morgan": "^1.6.1",
     "phantomjs": "^1.9.19"
+  },
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "lodash": "^4.2.0"
   }
 }
