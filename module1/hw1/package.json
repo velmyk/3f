@@ -1,4 +1,4 @@
-{
+  {
   "name": "my-angular",
   "version": "1.0.0",
   "description": "Building AngularJS with Tero Parviainen",
@@ -33,5 +33,10 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "morgan": "^1.6.1",
     "phantomjs": "^1.9.19"
+  },
+  "dependencies": {
+    "crossroads": "^0.12.2",
+    "jquery": "^2.2.0",
+    "lodash": "^4.2.0"
   }
 }
