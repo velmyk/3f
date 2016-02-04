@@ -37,11 +37,47 @@ function ProductScanService(CartService,
 
 
 
-/* <------ FACTORY             ------> */
 
 /* <------ SINGLETON           ------> */
 
-/* <------ MULTITON            ------> */
+function IdentityStore(BindingStoreFactory,
+                           UserPermissionService,
+                           MANAGER_GROUP_ID) {
+
+  var store = angular.extend(BindingStoreFactory.create(), {
+      hasPermission: hasPermission,
+      isPermissionDenied: isPermissionDenied,
+      isLeftHand: isLeftHand,
+      isManager: isManager
+  });
+
+  return store;
+
+  function hasPermission(permissionId) {
+    /* ... */
+  }
+
+  function isPermissionDenied(permissionId) {
+    /* ... */
+  }
+
+  function isLeftHand() {
+    /* ... */
+  }
+
+  function isManager() {
+    /* ... */
+  }
+}
+
+/* All services in AngularJS are singletones. In project we did not perform
+ * singleton implemenation, but used an Angular's one. In this case we store
+ * operator's object in the IdentityStore and can use this object during all
+ * lifecycle of application.
+ */
+
+
+
 
 /* <------ FACADE              ------> */
 
@@ -74,10 +110,6 @@ function CartService(ItemReturnsFilter,
 
 
 
-
-/* <------ DECORATOR           ------> */
-
-/* <------ MEDIATOR            ------> */
 
 /* <------ OBSERVER            ------> */
 
@@ -122,6 +154,4 @@ function ProductSearchFilterController($scope,
 /* In this case Scaner can broadcast scan event and several observers which are waiting
  * for notification from him will do some actions after notification.
  */ 
-
-/* <------ PUBLISH / SUBSCRIBE ------> */
 
