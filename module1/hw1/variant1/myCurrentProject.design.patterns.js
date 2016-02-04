@@ -1,5 +1,7 @@
 /* <------ REVEALING MODULE    ------> */
 
+/* UML -> ./umls/revealing-module.png */
+
 function ProductScanService(CartService,
                           DialogService,
                           /* ... */
@@ -39,6 +41,8 @@ function ProductScanService(CartService,
 
 
 /* <------ SINGLETON           ------> */
+
+/* UML -> ./umls/singleton.png */
 
 function IdentityStore(BindingStoreFactory,
                            UserPermissionService,
@@ -81,6 +85,8 @@ function IdentityStore(BindingStoreFactory,
 
 /* <------ FACADE              ------> */
 
+/* UML -> ./umls/facade.png */
+
 function CartService(ItemReturnsFilter,
                      LastAddedSkuFilter,
 
@@ -112,6 +118,8 @@ function CartService(ItemReturnsFilter,
 
 
 /* <------ OBSERVER            ------> */
+
+/* UML -> ./umls/observer.png */
 
 function Scanner(SCANNER_EVENT,
                  $rootScope) {
