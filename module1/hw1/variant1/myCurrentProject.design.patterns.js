@@ -45,6 +45,36 @@ function ProductScanService(CartService,
 
 /* <------ FACADE              ------> */
 
+function CartService(ItemReturnsFilter,
+                     LastAddedSkuFilter,
+
+                     /* ... */
+
+                     GIFT_CARD_SKU_TYPE) {
+  var service = {
+      all: all,
+
+      /* ... */
+
+      add: add,
+  };
+
+  return service;
+
+  function add(barcode, price, ignoreProgramExpired) {
+    /* 30 lines of code */
+  }
+}
+
+/* Facade allows to incapsulate complicated logic in some method
+ * and just use simple interface in other modules.
+ * In AngularJS there is many fasades lice $http serice which 
+ * incapsulate lines of native code and allows to use simple interface
+ */
+
+
+
+
 /* <------ DECORATOR           ------> */
 
 /* <------ MEDIATOR            ------> */
