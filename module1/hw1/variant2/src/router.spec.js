@@ -8,13 +8,31 @@ describe('router', function() {
 			angular;
 
 	beforeEach(function() {
-		
+
 		spyOn(crossroads, 'addRoute');
+		spyOn(crossroads, 'parse');
 
 		delete window.angular;
 		setupModuleLoader(window);
 		angular = window.angular;
 		createRouter(angular);
+	});
+
+	describe('should init hash history', function() {
+		beforeEach(function() {
+			crossroads.addRoute('foo');
+			crossroads.addRoute('bar');
+			hasher.setHash('foo');
+		});
+
+		it('should parse initial hash', function() {
+			expect(crossroads.parse).toHaveBeenCalledWith('foo');
+		});
+
+		it('should parse hash changes', function() {
+			hasher.replaceHash('bar');
+			expect(crossroads.parse).toHaveBeenCalledWith('bar');
+		});
 	});
 
 	it('should crete instance of Router', function() {
@@ -46,8 +64,16 @@ describe('router', function() {
 	it('should register route with crossroads', function() {
 		var url = Math.random() + '',
 				config = {};
-		createRouter(angular);
 		angular.router.add(url, config);
 		expect(crossroads.addRoute).toHaveBeenCalledWith(url);
+	});
+
+	it('should register route with some handler', function() {
+		var url = Math.random() + '',
+				config = {
+					controller: function() {}
+				};
+		angular.router.add(url, config);
+		expect(crossroads.addRoute).toHaveBeenCalledWith(url, jasmine.any(Function));
 	});
 });

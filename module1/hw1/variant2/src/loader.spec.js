@@ -66,13 +66,13 @@ describe('modules', function() {
 
 	it('throws when trying to get a nonexistent module', function() {
 		expect(function() {
-			window.angular.module( myModule );
+			window.angular.module('myModule');
 		}).toThrow();
 	});
 
 	it('does not allow a module to be called hasOwnProperty', function() {
 		expect(function() {
-			window.angular.module( hasOwnProperty , []);
+			window.angular.module('hasOwnProperty', []);
 		}).toThrow();
 	});
 	

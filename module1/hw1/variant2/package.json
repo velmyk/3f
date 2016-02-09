@@ -1,4 +1,4 @@
-  {
+{
   "name": "my-angular",
   "version": "1.0.0",
   "description": "Building AngularJS with Tero Parviainen",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "crossroads": "^0.12.2",
+    "hasher": "^1.2.0",
     "jquery": "^2.2.0",
     "lodash": "^4.2.0"
   }

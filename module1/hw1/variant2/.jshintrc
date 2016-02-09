@@ -8,6 +8,9 @@
     "afterEach": false,
     "jasmine": false,
     "module": false,
-    "inject": false
+    "inject": false,
+    "spyOn": false,
+    "crossroads": false,
+    "hasher": false
   }
 }

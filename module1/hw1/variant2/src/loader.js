@@ -20,7 +20,7 @@ function setupModuleLoader(window) {
 	});
 
 	var createModule = function(name, requires, modules) {
-		if (name ===  hasOwnProperty ) {
+		if (name === 'hasOwnProperty') {
 			throw 'hasOwnProperty is not a valid module name';
 		}
 		var invokeQueue = [];
