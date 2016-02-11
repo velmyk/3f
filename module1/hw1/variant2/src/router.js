@@ -23,8 +23,14 @@ function createRouter(obj) {
 		};
 
 		function add(url, config) {
+			var handler = function(config) {
+				if(config.controller) {
+					config.controller.apply(null);
+				}
+				document.getElementsByTagName('body')[0].innerHTML = config.template ? config.template : '';
+			}
 			routes[url] = config;
-			config.controller ? crossroads.addRoute(url, config.controller) : crossroads.addRoute(url);
+			crossroads.addRoute(url, handler);
 		}
 	});
 }

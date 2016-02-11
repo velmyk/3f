@@ -65,7 +65,7 @@ describe('router', function() {
 		var url = Math.random() + '',
 				config = {};
 		myModule.router.add(url, config);
-		expect(crossroads.addRoute).toHaveBeenCalledWith(url);
+		expect(crossroads.addRoute).toHaveBeenCalledWith(url, jasmine.any(Function));
 	});
 
 	it('should register route with some handler', function() {
@@ -75,5 +75,15 @@ describe('router', function() {
 				};
 		myModule.router.add(url, config);
 		expect(crossroads.addRoute).toHaveBeenCalledWith(url, jasmine.any(Function));
+	});
+
+	it('should register route with some template', function() {
+		var url = Math.random() + '',
+				template = Math.random() + '',
+				config = {
+					template: template
+				};
+		spyOn(document, 'getElementsByTagName');
+		hasher.setHash(url);
 	});
 });
