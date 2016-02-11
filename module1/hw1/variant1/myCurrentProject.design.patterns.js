@@ -161,5 +161,16 @@ function ProductSearchFilterController($scope,
 
 /* In this case Scaner can broadcast scan event and several observers which are waiting
  * for notification from him will do some actions after notification.
- */ 
+ */
 
+
+
+
+/* <------ MVVM            ------> */
+
+/* UML -> ./umls/mvvm.png */
+
+/* Applications, based on AngularJS has MVVM architecture. Thanks to 2 way data binding
+ * we have ViewModel in face of angular controller which maces communication between
+ * model(data, services) and view (template).
+ */
