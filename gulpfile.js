@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 var path = {
 	dist: './dist/',
 	src: {
-		js: 'src/**/*.js'
+		js: ['src/**/*.js', '!src/**/*.spec.js']
 	}
 };
 
