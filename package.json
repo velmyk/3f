@@ -1,25 +1,24 @@
 {
-  "name": "my-angular",
-  "version": "1.0.0",
-  "description": "Building AngularJS with Tero Parviainen",
+  "name": "3f",
+  "version": "0.0.1",
+  "description": "I build this framework just for fun and some practice",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/velmyk/my-angular.git"
+    "url": "git+https://github.com/velmyk/3f.git"
   },
   "keywords": [
-    "angular",
     "framework"
   ],
-  "author": "Vasyl Velmyk (Tero Parviainen)",
+  "author": "Vasyl Velmyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/velmyk/my-angular/issues"
+    "url": "https://github.com/velmyk/3f/issues"
   },
-  "homepage": "https://github.com/velmyk/my-angular#readme",
+  "homepage": "https://github.com/velmyk/3f#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
