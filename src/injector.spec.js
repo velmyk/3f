@@ -1,11 +1,11 @@
 /* jshint globalstrict: true */
-/* global createInjector: false, setupModuleLoader: false, angular: false */
+/* global createInjector: false, setupModuleLoader: false, f3: false */
 
 'use strict';
 
 describe('injector', function() {
 	beforeEach(function() {
-		delete window.angular;
+		delete window.f3;
 		setupModuleLoader(window);
 	});
 
@@ -15,20 +15,20 @@ describe('injector', function() {
 	});
 
 	it('has a constant that has been registered to a module', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('aConstant', 42);
 		var injector = createInjector(['myModule']);
 		expect(injector.has('aConstant')).toBe(true);
 	});
 
 	it('does not have a non-registered constant', function() {
-		var module = angular.module('myModule' , []);
+		var module = f3.module('myModule' , []);
 		var injector = createInjector(['myModule']);
 		expect(injector.has('aConstant')).toBe(false);
 	});
 
 	it('does not allow a constant called hasOwnProperty', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('hasOwnProperty', _.constant(false));
 		expect(function() {
 			createInjector(['myModule']);
@@ -36,15 +36,15 @@ describe('injector', function() {
 	});
 
 	it('can return a registered constant', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('aConstant', 42);
 		var injector = createInjector(['myModule']);
 		expect(injector.get('aConstant')).toBe(42);
 	});
 
 	it('loads multiple modules', function() {
-		var module1 = angular.module('myModule', []);
-		var module2 = angular.module('myOtherModule', []);
+		var module1 = f3.module('myModule', []);
+		var module2 = f3.module('myOtherModule', []);
 		module1.constant('aConstant', 42);
 		module2.constant('anotherConstant', 43);
 		var injector = createInjector(['myModule', 'myOtherModule']);
@@ -53,8 +53,8 @@ describe('injector', function() {
 	});
 
 	it('loads the required modules of a module', function() {
-		var module1 = angular.module('myModule', []);
-		var module2 = angular.module('myOtherModule', ['myModule']);
+		var module1 = f3.module('myModule', []);
+		var module2 = f3.module('myOtherModule', ['myModule']);
 		module1.constant('aConstant', 42);
 		module2.constant('anotherConstant', 43);
 		var injector = createInjector(['myOtherModule']);
@@ -63,9 +63,9 @@ describe('injector', function() {
 	});
 
 	it('loads the transitively required modules of a module', function() {
-		var module1 = angular.module('myModule', []);
-		var module2 = angular.module('myOtherModule', ['myModule']);
-		var module3 = angular.module('myThirdModule', ['myOtherModule']);
+		var module1 = f3.module('myModule', []);
+		var module2 = f3.module('myOtherModule', ['myModule']);
+		var module3 = f3.module('myThirdModule', ['myOtherModule']);
 		module1.constant('aConstant', 42);
 		module2.constant('anotherConstant', 43);
 		module3.constant('aThirdConstant', 44);
@@ -76,13 +76,13 @@ describe('injector', function() {
 	});
 
 	it('loads each module only once', function() {
-		var module1 = angular.module('myModule', ['myOtherModule']);
-		var module2 = angular.module('myOtherModule', ['myModule']);
+		var module1 = f3.module('myModule', ['myOtherModule']);
+		var module2 = f3.module('myOtherModule', ['myModule']);
 		createInjector(['myModule']);
 	});
 
 	it('invokes an annotated function with dependency injection', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('a', 1);
 		module.constant('b', 2);
 		var injector = createInjector(['myModule']);
@@ -94,7 +94,7 @@ describe('injector', function() {
 	});
 
 	it('does not accept non-strings as injection tokens', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('a', 1);
 		var injector = createInjector(['myModule']);
 		var fn = function(one, two) {
@@ -107,7 +107,7 @@ describe('injector', function() {
 	});
 
 	it('invokes a function with the given this context', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('a', 1);
 		var injector = createInjector(['myModule']);
 		var obj = {
@@ -121,7 +121,7 @@ describe('injector', function() {
 	});
 
 	it('overrides dependencies with locals when invoking', function() {
-		var module = angular.module('myModule', []);
+		var module = f3.module('myModule', []);
 		module.constant('a', 1);
 		module.constant('b', 2);
 		var injector = createInjector(['myModule']);
@@ -192,7 +192,7 @@ describe('injector', function() {
 		});
 
 		it('invokes an array-annotated function with dependency injection', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);
@@ -203,7 +203,7 @@ describe('injector', function() {
 		});
 
 		it('invokes a non-annotated function with dependency injection', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);
@@ -214,7 +214,7 @@ describe('injector', function() {
 		});
 
 		it('instantiates an annotated constructor function', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);
@@ -227,7 +227,7 @@ describe('injector', function() {
 		});
 
 		it('instantiates an array-annotated constructor function', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);
@@ -238,7 +238,7 @@ describe('injector', function() {
 		});
 
 		it('instantiates a non-annotated constructor function', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);
@@ -256,14 +256,14 @@ describe('injector', function() {
 				this.v = this.getValue();
 			}
 			Type.prototype = BaseType.prototype;
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			var injector = createInjector(['myModule']);
 			var instance = injector.instantiate(Type);
 			expect(instance.v).toBe(42);
 		});
 
 		it('supports locals when instantiating', function() {
-			var module = angular.module('myModule', []);
+			var module = f3.module('myModule', []);
 			module.constant('a', 1);
 			module.constant('b', 2);
 			var injector = createInjector(['myModule']);

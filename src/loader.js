@@ -6,9 +6,9 @@ function setupModuleLoader(window) {
 	var ensure = function(obj, name, factory) {	// [MP hw1] example of singleton pattern
 		return obj[name] || (obj[name] = factory());
 	};
-	var angular = ensure(window, 'angular', Object);
+	var f3 = ensure(window, 'f3', Object);
 
-	ensure(angular, 'module', function() {
+	ensure(f3, 'module', function() {
 		var modules = {};
 		return function(name, requires) {
 			if(requires) {

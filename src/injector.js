@@ -1,5 +1,5 @@
 /* jshint globalstrict: true */
-/* global angular: false */
+/* global f3: false */
 
 'use strict';
 
@@ -66,7 +66,7 @@ function createInjector(modulesToLoad, strictDi) {
 	_.forEach(modulesToLoad, function loadModule(moduleName) {
 		if (!loadedModules.hasOwnProperty(moduleName)) {
 			loadedModules[moduleName] = true;
-			var module = angular.module(moduleName);
+			var module = f3.module(moduleName);
 			_.forEach(module.requires, loadModule);
 			_.forEach(module._invokeQueue, function(invokeArgs) {
 				var method = invokeArgs[0];

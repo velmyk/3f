@@ -5,16 +5,16 @@
 
 describe('router', function() {
 	var myModule,
-			angular;
+			f3;
 
 	beforeEach(function() {
 
 		spyOn(crossroads, 'addRoute');
 		spyOn(crossroads, 'parse');
 
-		delete window.angular;
+		delete window.f3;
 		setupModuleLoader(window);
-		myModule = window.angular.module('myModule', []);
+		myModule = window.f3.module('myModule', []);
 		createRouter(myModule);
 	});
 
