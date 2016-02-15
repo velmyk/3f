@@ -2,12 +2,14 @@ var gulp = require('gulp'),
 		jshint = require('gulp-jshint'),
 		Server = require('karma').Server,
 		concat = require('gulp-concat'),
-		clean = require('gulp-clean');
+		clean = require('gulp-clean'),
+		wrap = require('gulp-wrap');
 
 var path = {
 	dist: './dist/',
 	src: {
-		js: ['src/**/*.js', '!src/**/*.spec.js']
+		js: ['src/**/*.js', '!src/**/*.spec.js', '!src/wrapper.js'],
+		wrapper: 'src/wrapper.js'
 	}
 };
 
@@ -36,6 +38,9 @@ gulp.task('watch', function () {
 gulp.task('build', ['clean'],function() {
 	gulp.src(path.src.js)
 		.pipe(concat('f3.js'))
+		.pipe(wrap({
+			src: path.src.wrapper
+		}))
 		.pipe(gulp.dest(path.dist));
 });
 

@@ -1,5 +1,7 @@
-/* jshint globalstrict: true */
-/* global angular: false */
+(function () {
+	var factory = function (lodash, crossroads, hasher) {
+		/* jshint globalstrict: true */
+/* global f3: false */
 
 'use strict';
 
@@ -66,7 +68,7 @@ function createInjector(modulesToLoad, strictDi) {
 	_.forEach(modulesToLoad, function loadModule(moduleName) {
 		if (!loadedModules.hasOwnProperty(moduleName)) {
 			loadedModules[moduleName] = true;
-			var module = angular.module(moduleName);
+			var module = f3.module(moduleName);
 			_.forEach(module.requires, loadModule);
 			_.forEach(module._invokeQueue, function(invokeArgs) {
 				var method = invokeArgs[0];
@@ -96,9 +98,9 @@ function setupModuleLoader(window) {
 	var ensure = function(obj, name, factory) {	// [MP hw1] example of singleton pattern
 		return obj[name] || (obj[name] = factory());
 	};
-	var angular = ensure(window, 'angular', Object);
+	var f3 = ensure(window, 'f3', Object);
 
-	ensure(angular, 'module', function() {
+	ensure(f3, 'module', function() {
 		var modules = {};
 		return function(name, requires) {
 			if(requires) {
@@ -172,3 +174,10 @@ function createRouter(obj) {
 		}
 	});
 }
+		return f3;
+	};
+
+	window['f3'] = factory(window['lodash'], window['crossroads'], window['hasher']);
+}
+
+}());
