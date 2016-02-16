@@ -8,8 +8,8 @@ var gulp = require('gulp'),
 var path = {
 	dist: './dist/',
 	src: {
-		js: ['src/**/*.js', '!src/**/*.spec.js', '!src/wrapper.js'],
-		wrapper: 'src/wrapper.js'
+		js: ['src/*.js', '!src/*.spec.js'],
+		wrapper: 'src/help-files/wrapper.js'
 	}
 };
 
