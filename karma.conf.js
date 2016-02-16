@@ -19,7 +19,7 @@ module.exports = function(config) {
       'node_modules/crossroads/node_modules/signals/dist/signals.js',
       'node_modules/crossroads/dist/crossroads.js',
       'node_modules/hasher/dist/js/hasher.js',
-      'src/**/*.js'
+      'src/*.js'
     ],
 
     exclude: [

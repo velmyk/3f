@@ -23,13 +23,12 @@ function createRouter(obj) {
 		};
 
 		function add(url, config) {
-			var handler = function(config) {
+			var handler = function() {
 				if(config.controller) {
 					config.controller.apply(null);
 				}
 				document.getElementsByTagName('body')[0].innerHTML = config.template ? config.template : '';
 			}
-			handler = handler.bind(null, config);
 			routes[url] = config;
 			crossroads.addRoute(url, handler);
 		}
