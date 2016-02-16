@@ -24,10 +24,17 @@ gulp.task('jshint', function() {
 		.pipe(jshint.reporter('default'));
 });
 
-gulp.task('test', function(){  
+gulp.task('tdd', function(){  
 	new Server({
 		configFile:__dirname + '/karma.conf.js',
 		singleRun: false
+	}).start();
+});
+
+gulp.task('test', function(){  
+	new Server({
+		configFile:__dirname + '/karma.conf.js',
+		singleRun: true
 	}).start();
 });
 
@@ -44,4 +51,4 @@ gulp.task('build', ['clean'],function() {
 		.pipe(gulp.dest(path.dist));
 });
 
-gulp.task('default', ['watch','test']);
+gulp.task('default', ['watch','tdd']);

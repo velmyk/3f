@@ -4,7 +4,7 @@
   "description": "I build this framework just for fun and some practice",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
