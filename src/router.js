@@ -29,6 +29,7 @@ function createRouter(obj) {
 				}
 				document.getElementsByTagName('body')[0].innerHTML = config.template ? config.template : '';
 			}
+			handler = handler.bind(null, config);
 			routes[url] = config;
 			crossroads.addRoute(url, handler);
 		}

@@ -169,15 +169,19 @@ function createRouter(obj) {
 				}
 				document.getElementsByTagName('body')[0].innerHTML = config.template ? config.template : '';
 			}
+			handler = handler.bind(null, config);
 			routes[url] = config;
 			crossroads.addRoute(url, handler);
 		}
 	});
 }
-		return f3;
+
+		setupModuleLoader(window);
+
+		window.f3.createInjector = createInjector;
+		window.f3.createRouter = createRouter;
 	};
 
-	window['f3'] = factory(window['lodash'], window['crossroads'], window['hasher']);
-}
+	factory(window['lodash'], window['crossroads'], window['hasher']);
 
 }());

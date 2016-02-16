@@ -1,10 +1,13 @@
 (function () {
 	var factory = function (lodash, crossroads, hasher) {
 		<%= contents %>
-		return f3;
+
+		setupModuleLoader(window);
+
+		window.f3.createInjector = createInjector;
+		window.f3.createRouter = createRouter;
 	};
 
-	window['f3'] = factory(window['lodash'], window['crossroads'], window['hasher']);
-}
+	factory(window['lodash'], window['crossroads'], window['hasher']);
 
 }());
