@@ -4,7 +4,7 @@
   "description": "I build this framework just for fun and some practice",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/karma/b"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
