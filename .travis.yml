@@ -6,3 +6,4 @@ before_script:
   - 'npm install'
 script:
   - 'gulp eslint'
+  - 'npm test'
