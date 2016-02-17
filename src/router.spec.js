@@ -1,6 +1,3 @@
-/* global setupModuleLoader: false */
-/* global window: false */
-
 'use strict';
 
 describe('router', function() {

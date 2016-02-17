@@ -1,0 +1,5 @@
+{
+  "rules":{
+    "quote-props": [2, "as-needed", {"numbers": true}]
+  }
+}

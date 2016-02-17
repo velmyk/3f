@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
 	var factory = function (lodash, crossroads, hasher) {
 		<%= contents %>

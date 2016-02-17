@@ -1,6 +1,3 @@
-/* jshint globalstrict: true */
-/* global createInjector: false, setupModuleLoader: false, f3: false */
-
 'use strict';
 
 describe('injector', function() {

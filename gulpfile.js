@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-		jshint = require('gulp-jshint'),
+		eslint = require('gulp-eslint'),
 		Server = require('karma').Server,
 		concat = require('gulp-concat'),
 		clean = require('gulp-clean'),
@@ -18,10 +18,11 @@ gulp.task('clean', function() {
 		.pipe(clean());
 });
 
-gulp.task('jshint', function() {
+gulp.task('eslint', function() {
 	return gulp.src(path.src.js)
-		.pipe(jshint({"esnext": true}))
-		.pipe(jshint.reporter('default'));
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError());
 });
 
 gulp.task('tdd', function(){  
@@ -39,7 +40,7 @@ gulp.task('test', function(){
 });
 
 gulp.task('watch', function () {
-	gulp.watch(path.src.js,['jshint']);
+	gulp.watch(path.src.js,['eslint']);
 });
 
 gulp.task('build', ['clean'],function() {

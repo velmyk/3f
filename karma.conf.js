@@ -14,7 +14,6 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
-      'node_modules/jquery/dist/jquery.js',
       'node_modules/lodash/lodash.js',
       'node_modules/crossroads/node_modules/signals/dist/signals.js',
       'node_modules/crossroads/dist/crossroads.js',

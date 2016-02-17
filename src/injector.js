@@ -1,6 +1,3 @@
-/* jshint globalstrict: true */
-/* global f3: false */
-
 'use strict';
 
 function createInjector(modulesToLoad, strictDi) {
