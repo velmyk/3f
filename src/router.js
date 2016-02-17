@@ -8,7 +8,7 @@ function createRouter(obj) {
 	ensure(obj, 'router', function() {
 
 		function parseHash(newHash, oldHash){
-		  crossroads.parse(newHash);
+			crossroads.parse(newHash);
 		}
 		hasher.initialized.add(parseHash);
 		hasher.changed.add(parseHash);

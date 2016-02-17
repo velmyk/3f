@@ -1,5 +1,19 @@
 {
-  "rules":{
-    "quote-props": [2, "as-needed", {"numbers": true}]
-  }
+	"env": {
+		"browser": true,
+	},
+	"rules":{
+		"quote-props": [2, "as-needed", {"numbers": true}],
+		"quotes": [2, "single"],
+		"eqeqeq": 2,
+		"wrap-iife": 2,
+		"no-multi-spaces": 2,
+		"no-undef": 2
+	},
+	"globals": {
+		"f3": false,
+		"_": false,
+		"crossroads": false,
+		"hasher": false
+	}
 }
