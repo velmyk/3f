@@ -1,6 +1,6 @@
 {
 	"env": {
-		"browser": true,
+		"browser": true
 	},
 	"rules":{
 		"quote-props": [2, "as-needed", {"numbers": true}],
