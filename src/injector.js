@@ -1,6 +1,6 @@
-'use strict';
-
 function createInjector(modulesToLoad, strictDi) {
+	'use strict';
+	
 	var cache = {};
 	var loadedModules = {};
 	strictDi = (strictDi === true);

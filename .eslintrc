@@ -8,7 +8,8 @@
 		"eqeqeq": 2,
 		"wrap-iife": 2,
 		"no-multi-spaces": 2,
-		"no-undef": 2
+		"no-undef": 2,
+		"strict": 2
 	},
 	"globals": {
 		"f3": false,

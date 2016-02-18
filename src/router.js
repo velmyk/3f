@@ -1,6 +1,6 @@
-'use strict';
-
 function createRouter(obj) {
+	'use strict';
+	
 	var ensure = function(obj, name, factory) {	// [MP hw1] example of singleton pattern
 		return obj[name] || (obj[name] = factory());
 	};
