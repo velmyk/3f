@@ -4,7 +4,8 @@
   "description": "I build this framework just for fun and some practice",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "cat ./coverage/**/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/velmyk/3f#readme",
   "devDependencies": {
+    "coveralls": "^2.11.6",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.0",

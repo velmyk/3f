@@ -7,3 +7,4 @@ before_script:
 script:
   - 'gulp eslint'
   - 'npm test'
+after_success: 'npm run coveralls'
